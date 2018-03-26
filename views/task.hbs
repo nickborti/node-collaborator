@@ -1,0 +1,55 @@
+<div>
+  <div class="row">
+    <div class="col-md-8">
+      <textarea id="code-screen"></textarea>
+    </div>
+    <div class="col-md-4" id="chatbox">
+
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          Chatroom
+          <span class="pull-right" id="chatbox-username">
+            {{#if user}}
+              {{user.name}}
+            {{/if}}
+          </span>
+        </div>
+        <div class="panel-body">
+          <ul class="media-list" style="height:300px; overflow-y: scroll;"
+            id="chatbox-listMessages">
+
+          </ul>
+        </div>
+        <div class="panel-footer">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Enter message" id="userMessage" />
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-primary" onclick="sendMessage()">Send</button>
+            </span>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.36.0/mode/javascript/javascript.min.js"></script>
+
+<script>
+var socket = io.connect('https://localhost:8000');
+  var editor = CodeMirror.fromTextArea(document.getElementById('code-screen'), {
+    lineNumbers: true,
+    theme: "monokai"
+  });
+
+  var username = $('#chatbox-username').val();
+  if(username === ''){
+    var userId = Math.floor(Math.random() + 9999).toString();
+    username = "User"+userId;
+    $('#chatbox-username').text(username);
+  }
+
+</script>

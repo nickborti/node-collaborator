@@ -9,5 +9,9 @@ module.exports = {
     }
   },
   dbConnString: 'mongodb://localhost:27017/node-collaborator',
-  sessionKey: 'HaloNodeCollaborator'
+  sessionKey: 'HaloNodeCollaborator',
+  facebook: {
+    clientID: '224713581409883',
+    clientSecret: 'c99341ea034a30a220862aac5889e9c7'
+  }
 }

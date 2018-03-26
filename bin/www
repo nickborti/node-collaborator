@@ -7,6 +7,13 @@
 var app = require('../app');
 var debug = require('debug')('node-collaborator:server');
 var http = require('http');
+var https = require('https');
+
+var fs = require('fs');
+var config     = {
+    key: fs.readFileSync('file.pem'),
+    cert: fs.readFileSync('file.crt')
+};
 
 /**
  * Get port from environment and store in Express.
@@ -20,14 +27,18 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+var serverHttps = https.createServer(config, app);
+require('../socket-sever')(serverHttps);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
 server.listen(port);
+serverHttps.listen('8000');
 server.on('error', onError);
 server.on('listening', onListening);
+
 
 /**
  * Normalize a port into a number, string, or false.
@@ -88,3 +99,17 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+
+/*
+  redirect traffic to https
+*/
+
+function ensureSecure(req, res, next){
+  if(req.secure){
+    return next();
+  };
+  res.redirect('https://'+req.host+':' + 8000 + req.url);
+};
+
+app.all('*', ensureSecure);

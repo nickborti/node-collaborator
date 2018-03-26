@@ -1,4 +1,4 @@
-<form class="form-signin col-md-4 col-md-offset-4" method="post">
+<form class="form-signin col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2" method="post">
 
   {{#each errorMessages}}
     <div class="alert alert-danger">
@@ -18,6 +18,8 @@
   <input type="password" name="confirmPassword" class="form-control" placeholder="Confirm Password" require="" />
   <br/>
   <button type="submit" class="btn btn-lg btn-primary btn-block">Sign Up</button>
-
+  <br>
+  <h4 class="text-center">Or</h4>
+  <a href="/auth/facebook" class="btn btn-lg btn-success btn-block">Sign Up with Facebook</a>
 
 </form>
