@@ -36,7 +36,7 @@ router.route('/contact')
     }else{
       var mailOptions = {
           from: 'Node Collaborator <no-reply@sapnick.com>',
-          to: 'nickborti@gmail.com',
+          to: 'saaggy18@gmail.com',
           subject: 'You got a new message from visitor 👽 😬 ',
           text: req.body.message
       };
@@ -50,6 +50,7 @@ router.route('/contact')
       });
 
     }
-  })
+  });
+
 
 module.exports = router;
