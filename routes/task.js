@@ -9,7 +9,7 @@ router.get('/create', (req, res) => {
       console.log(err);
       res.render('error');
     }else{
-      res.redirect('/task/'+data._id);
+      res.redirect('/task/'+data.id);
     }
   })
 });
@@ -23,7 +23,7 @@ router.get('/:id', (req, res) => {
       }
 
       if(data){
-        res.render('task', { data: data })
+        res.render('task', { data: data, roomId: data.id })
       }else{
         res.render('error');
       }
