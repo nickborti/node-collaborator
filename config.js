@@ -8,7 +8,7 @@ module.exports = {
       pass: 'iamlegend2112'
     }
   },
-  dbConnString: 'mongodb://localhost:27017/node-collaborator',
+  dbConnString: 'mongodb://admin:123456@ds125479.mlab.com:25479/node-collaborator',
   sessionKey: 'HaloNodeCollaborator',
   facebook: {
     clientID: '224713581409883',
