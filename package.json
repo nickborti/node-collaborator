@@ -1,9 +1,13 @@
 {
   "name": "node-collaborator",
   "version": "0.0.0",
+  "description": "This is a test node collaborator app",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "node ./bin/www"
+  },
+  "engines": {
+    "node": "8.1.1"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
