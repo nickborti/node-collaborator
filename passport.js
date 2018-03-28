@@ -40,7 +40,7 @@ passport.use(new LocalStrategy({
 passport.use(new FacebookStrategy({
   clientID: config.facebook.clientID,
   clientSecret: config.facebook.clientSecret,
-  callbackURL: 'https://localhost:8000/auth/facebook/callback',
+  callbackURL: 'https://enigmatic-temple-52187.herokuapp.com/auth/facebook/callback',
   profileFields: ['id', 'displayName', 'email']
 }, function(accessToken, refreshToken, profile, done){
     User.findOne({'facebookId': profile.id}, (err, user) => {
