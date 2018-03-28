@@ -5,7 +5,7 @@ module.exports = {
     service: 'Gmail',
     auth: {
       user: 'rabart18@gmail.com',
-      pass: 'iamlegend2112'
+      pass: 'xxxxx'
     }
   },
   dbConnString: 'mongodb://admin:123456@ds125479.mlab.com:25479/node-collaborator',
